@@ -5,13 +5,13 @@
 }
 
 body{
-    background: linear-gradient(135deg, #00feba, #5b548a);
+    background-color: #48cae4;
     display: flex;
     justify-content: center;
 }
 
 div.card{
-    background-color: #222;
+    background-color: #252638;
     min-width: 35%;
     margin-top: 1rem;
     border-radius: 5px;
