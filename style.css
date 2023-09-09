@@ -47,3 +47,23 @@ div.search-icon{
 div.search-icon i{
     padding: 0.8rem;
 }
+
+div.current-weather{
+    border: 1px solid #fff;
+    text-align: center;
+    margin: 0.8rem 0;
+}
+
+div.current-weather > img{
+    width: 30%;
+    height: 30%;
+}
+
+div.current-weather > h1{
+    color: #fff;
+}
+div.current-weather > p{
+    font-size: 21px;
+    color: #fff;
+    margin-top: 0.5rem;
+}
