@@ -10,15 +10,18 @@ body{
     justify-content: center;
 }
 
+/* Card */
+
 div.card{
     background-color: #252638;
     min-width: 35%;
     margin-top: 1rem;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid black;
     padding: 1rem;
 }
 
+/* Header Section */
 .card-header{
     display: flex;
     justify-content: space-between;
@@ -42,11 +45,14 @@ div.search-icon{
     height: 2.5rem;
     border-radius: 50%;
     width: 2.5rem;
+    cursor: pointer;
 }
 
 div.search-icon i{
     padding: 0.8rem;
 }
+
+/* Hero Section */
 
 div.current-weather{
     border: 1px solid #fff;
@@ -67,3 +73,6 @@ div.current-weather > p{
     color: #fff;
     margin-top: 0.5rem;
 }
+
+/* Footer Section */
+

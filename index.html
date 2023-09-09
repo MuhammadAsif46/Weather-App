@@ -14,22 +14,49 @@
 
         <header class="card-header">
             <div class="search">
-                <input type="text" placeholder=" Enter City Name">
+                <input type="text" id="cityName" placeholder=" Enter City Name">
             </div>
             <div class="search-icon">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <i onclick="getWeather()" class="fa fa-search" aria-hidden="true"></i>
             </div>
         </header>
         
         <!-- Hero Section -->
 
-        <div class="current-weather">
-            <img src="./img/cloud-img.png" alt="cloudImage">
-            <h1>32°c</h1>
-            <p>karachi, PK</p>
+        <div id="weather" class="current-weather">
+            
         </div>
         
+        <!-- Footer Section -->
+
+        <div class="weather-forcast">
+
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        const getWeather = () => {
+        
+            let cityName = document.querySelector("#cityName").value;
+            let API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
+
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
+                .then(function (response){
+                    console.log(response.data);
+                    document.querySelector("#weather").innerHTML = 
+                    `<img src="./img/cloud-img.png" alt="cloudImage">
+                    <h1>${response.data.main.temp}°c</h1>
+                    <p>${response.data.name}, ${response.data.sys.country}</p>
+                    <p>${response.data.weather[0].description}</p>`
+                })
+                .catch(function (error){
+                    console.log(error.data);
+                })
+        }
+
+
+
+    </script>
 </body>
 </html>
