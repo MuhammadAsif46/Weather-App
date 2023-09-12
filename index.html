@@ -25,9 +25,9 @@
 
         <div id="weather" class="current-weather">
             <img src="./img/cloud-img.png" alt="cloudImage">
-                    <h1 class="temp">26°c</h1>
-                    <p class="city">london, UK</p>
-                    <p class="cloud">sunny</p>
+                    <h1 id="temp">26°c</h1>
+                    <p id="city">london,<span id="country">UK</span> </p>
+                    <p id="cloud">sunny</p>
         </div>
         
         <!-- Footer Section -->
@@ -47,7 +47,11 @@
             axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
                 .then(function (response){
                     console.log(response.data);
-                    document.querySelector("temp").innerHTML = response.data. 
+
+                    document.querySelector("#temp").innerHTML = response.data.main.temp + "°c" ;
+                    document.getElementById("city").innerHTML = response.data.name + "zzz";
+                    document.getElementById("country").innerHTML = response.data ;
+                    document.getElementById("cloud").innerHTML = response.data.weather ;
                     // `<img src="./img/cloud-img.png" alt="cloudImage">
                     // <h1>${response.data.main.temp}°c</h1>
                     // <p>${response.data.name}, ${response.data.sys.country}</p>
