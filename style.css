@@ -29,16 +29,13 @@ div.card{
     height: 4rem;
 }
 
-div input{
+div.search input{
+    border: 0;
     height: 2.2rem;
     border-radius: 30px;
     width: 100%;
-}
-
-#cityName{
-    font-size: 1.5rem;
-    padding: 5px;
-
+    padding: 0.3rem 0.9rem;
+    font-size: 1.3rem;
 }
 
 div.search{

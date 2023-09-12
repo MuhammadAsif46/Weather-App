@@ -14,7 +14,7 @@
 
         <header class="card-header">
             <div class="search">
-                <input type="text" id="cityName" placeholder=" Enter City Name">
+                <input type="text" id="cityName" placeholder="Enter City Name">
             </div>
             <div class="search-icon">
                 <i onclick="getWeather()" class="fa fa-search" aria-hidden="true"></i>
@@ -24,7 +24,10 @@
         <!-- Hero Section -->
 
         <div id="weather" class="current-weather">
-            
+            <img src="./img/cloud-img.png" alt="cloudImage">
+                    <h1 class="temp">26°c</h1>
+                    <p class="city">london, UK</p>
+                    <p class="cloud">sunny</p>
         </div>
         
         <!-- Footer Section -->
@@ -44,18 +47,16 @@
             axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
                 .then(function (response){
                     console.log(response.data);
-                    document.querySelector("#weather").innerHTML = 
-                    `<img src="./img/cloud-img.png" alt="cloudImage">
-                    <h1>${response.data.main.temp}°c</h1>
-                    <p>${response.data.name}, ${response.data.sys.country}</p>
-                    <p>${response.data.weather[0].description}</p>`
+                    document.querySelector("temp").innerHTML = response.data. 
+                    // `<img src="./img/cloud-img.png" alt="cloudImage">
+                    // <h1>${response.data.main.temp}°c</h1>
+                    // <p>${response.data.name}, ${response.data.sys.country}</p>
+                    // <p>${response.data.weather[0].description}</p>`
                 })
                 .catch(function (error){
                     console.log(error.data);
                 })
-        }
-
-
+        };
 
     </script>
 </body>
