@@ -1,102 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <title>Weather App</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="card">
+      <!-- Header Section -->
 
-        <!-- Header Section -->
-
-        <header class="card-header">
-            <div class="search">
-                <input type="text" id="cityName" placeholder="Enter City Name" >
-            </div>
-            <div class="search-icon">
-                <i onclick="getWeather()" class="fa fa-search" aria-hidden="true"></i>
-            </div>
-        </header>
-        
-        <!-- Hero Section -->
-
-        <div id="weather" class="current-weather">
-            <img class="weatherClouds"  src="./img/cloud-img.png" alt="cloudImage" />
-                    <h1 class="temp">26°c</h1>
-                    <p class="city">london,<span id="country">UK</span> </p>
-                    <p class="cloud">sunny</p>
+      <header class="card-header">
+        <div class="search">
+          <input type="text" id="cityName" placeholder="Enter City Name" />
         </div>
-        
-        <!-- Footer Section -->
-
-        <div class="weather-forcast">
-            <div class="humidity">
-                <h3 class="humidity-val">72</h3>
-                <img src="./img/humidity.png" alt="humidity">
-                <p>Huminity</p>
-            </div>
-            <div class="wind-speed">
-                <h3 class="wind-speed-val">72</h3>
-                <i class="fa-solid fa-wind"></i>
-                <p>Wind speed</p>
-            </div>
-            <div class="feels-like">
-                <h3 class="feels-like-val">72</h3>
-                <i class="fa-solid fa-cloud-moon-rain"></i>
-                <p>Feels Like</p>
-            </div>
+        <div class="search-icon">
+          <i onclick="getWeather()" class="fa fa-search" aria-hidden="true"></i>
         </div>
+      </header>
+
+      <!-- Hero Section -->
+
+      <div id="weather" class="current-weather">
+        <img class="weatherClouds" src="./img/cloud-img.png" alt="cloudImage" />
+        <h1 class="temp"></h1>
+        <p class="city">,<span id="country"></span></p>
+        <p class="cloud"></p>
+      </div>
+
+      <!-- Footer Section -->
+
+      <div class="weather-forcast">
+        <div class="humidity">
+          <h3 class="humidity-val"></h3>
+          <img src="./img/humidity.png" alt="humidity" />
+          <p>Huminity</p>
+        </div>
+        <div class="wind-speed">
+          <h3 class="wind-speed-val"></h3>
+          <i class="fa-solid fa-wind"></i>
+          <p>Wind speed</p>
+        </div>
+        <div class="feels-like">
+          <h3 class="feels-like-val"></h3>
+          <i class="fa-solid fa-cloud-moon-rain"></i>
+          <p>Feels Like</p>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script>    
-        const getWeather = (e) => {
-            // e.preventDefault()
-        
-            let cityName = document.querySelector("#cityName").value;
-            const API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
+    <script>
 
-            const weatherClouds = document.querySelector(".weatherClouds");
+      const API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
+      
 
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
-                .then(function (response){
-                    console.log(response.data);
+      const getWeather = () => {
+        // e.preventDefault()
 
-                    document.querySelector(".temp").innerHTML = Math.round(response.data.main.temp) + "°c" ;
-                    document.querySelector(".city").innerHTML = response.data.name + ", " + response.data.sys.country ;
-                    document.querySelector(".cloud").innerHTML = response.data.weather[0].description ;
-                    document.querySelector(".humidity-val").innerHTML = Math.round(response.data.wind.speed) + "%";
-                    document.querySelector(".wind-speed-val").innerHTML = response.data.main.humidity + " km/h";
-                    document.querySelector(".feels-like-val").innerHTML = response.data.main.feels_like;
-                    
-                    if(response.data.weather[0].main == "Clouds"){
-                        weatherClouds.src = "./img/clouds.png";
+        let cityName = document.querySelector("#cityName").value;
 
-                    }else if (response.data.weather[0].main == "Clear") {
-                        weatherClouds.src = "./img/clear.png";
-                    
-                    }else if (response.data.weather[0].main == "Rain") {
-                        weatherClouds.src = "./img/rain.png";
-                    
-                    }else if (response.data.weather[0].main == "Drizzle") {
-                        weatherClouds.src = "./img/drizzle.png";
-                    
-                    }else if (response.data.weather[0].main == "Snow") {
-                        weatherClouds.src = "./img/snow.png";
-                    
-                    }else if (response.data.weather[0].main == "Mist") {
-                        weatherClouds.src = "./img/mist.png";
-                    
-                    }
-                })
-                .catch(function (error){
-                    console.log(error.data);
-                })
-        };
+        const weatherClouds = document.querySelector(".weatherClouds");
+
+        axios
+          .get(
+            `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
+          )
+          .then(function (response) {
+            console.log(response.data);
+
+            document.querySelector(".temp").innerHTML =
+              Math.round(response.data.main.temp) + "°c";
+            document.querySelector(".city").innerHTML =
+              response.data.name + ", " + response.data.sys.country;
+            document.querySelector(".cloud").innerHTML =
+              response.data.weather[0].description;
+            document.querySelector(".humidity-val").innerHTML =
+              Math.round(response.data.wind.speed) + "%";
+            document.querySelector(".wind-speed-val").innerHTML =
+              response.data.main.humidity + " km/h";
+            document.querySelector(".feels-like-val").innerHTML =
+              response.data.main.feels_like;
+
+            if (response.data.weather[0].main == "Clouds") {
+              weatherClouds.src = "./img/clouds.png";
+            } else if (response.data.weather[0].main == "Clear") {
+              weatherClouds.src = "./img/clear.png";
+            } else if (response.data.weather[0].main == "Rain") {
+              weatherClouds.src = "./img/rain.png";
+            } else if (response.data.weather[0].main == "Drizzle") {
+              weatherClouds.src = "./img/drizzle.png";
+            } else if (response.data.weather[0].main == "Snow") {
+              weatherClouds.src = "./img/snow.png";
+            } else if (response.data.weather[0].main == "Mist") {
+              weatherClouds.src = "./img/mist.png";
+            }
+          })
+          .catch(function (error) {
+            console.log(error.data);
+          });
+      };
+
+      const weather = () => {
+
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=karachi&appid=${API_KEY}&units=metric`)
+          .then(function (response) {
+            console.log(response.data);
+
+            document.querySelector(".temp").innerHTML =
+              Math.round(response.data.main.temp) + "°c";
+            document.querySelector(".city").innerHTML =
+              response.data.name + ", " + response.data.sys.country;
+            document.querySelector(".cloud").innerHTML =
+              response.data.weather[0].description;
+            document.querySelector(".humidity-val").innerHTML =
+              Math.round(response.data.wind.speed) + "%";
+            document.querySelector(".wind-speed-val").innerHTML =
+              response.data.main.humidity + " km/h";
+            document.querySelector(".feels-like-val").innerHTML =
+              response.data.main.feels_like;
+
+            if (response.data.weather[0].main == "Clouds") {
+              weatherClouds.src = "./img/clouds.png";
+            } else if (response.data.weather[0].main == "Clear") {
+              weatherClouds.src = "./img/clear.png";
+            } else if (response.data.weather[0].main == "Rain") {
+              weatherClouds.src = "./img/rain.png";
+            } else if (response.data.weather[0].main == "Drizzle") {
+              weatherClouds.src = "./img/drizzle.png";
+            } else if (response.data.weather[0].main == "Snow") {
+              weatherClouds.src = "./img/snow.png";
+            } else if (response.data.weather[0].main == "Mist") {
+              weatherClouds.src = "./img/mist.png";
+            }
+          })
+          .catch(function (error) {
+            console.log(error.data);
+          });
+    }
+
+    weather();
 
     </script>
-</body>
+  </body>
 </html>
