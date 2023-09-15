@@ -89,17 +89,32 @@ div.weather-forcast{
 
 }
 
+div.weather-forcast img{
+    width: 20px;
+    height: 20px;
+}
+
 div.humidity{
     border: 1px solid red;
     width: 25%;
+}
+div.humidity p{
+    margin: 5px 0;
 }
 
 div.wind-speed{
     border: 1px solid red;
     width: 45%;
 }
+div.wind-speed p{
+    margin: 5px 0;
+}
 
 div.feels-like{
     border: 1px solid red;
     width: 25%;
+}
+
+div.feels-like p{
+    margin: 5px 0;
 }
