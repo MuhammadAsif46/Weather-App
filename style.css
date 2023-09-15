@@ -22,6 +22,7 @@ div.card{
 }
 
 /* Header Section */
+
 .card-header{
     display: flex;
     justify-content: space-between;
@@ -57,7 +58,6 @@ div.search-icon i{
 /* Hero Section */
 
 div.current-weather{
-    /* border: 1px solid #fff; */
     text-align: center;
     margin: 0.8rem 0;
 }
