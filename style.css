@@ -126,7 +126,7 @@ div.feels-like{
 
 /* Media Queries */
 
-@media only screen and (max-width: 420px){}
+@media only screen and (max-width: 420px){
     div.search{
         width: 70%;
     }
