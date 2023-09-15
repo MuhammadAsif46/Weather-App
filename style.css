@@ -124,3 +124,16 @@ div.feels-like{
     border-bottom-right-radius: 5px;
 }
 
+/* Media Queries */
+
+@media only screen and (max-width: 320px){
+    div.search{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    div.search{
+        width: 70%;
+    }
+}
