@@ -78,3 +78,28 @@ div.current-weather > p{
 
 /* Footer Section */
 
+div.weather-forcast{
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+div.humidity{
+    border: 1px solid red;
+    width: 25%;
+}
+
+div.wind-speed{
+    border: 1px solid red;
+    width: 45%;
+}
+
+div.feels-like{
+    border: 1px solid red;
+    width: 25%;
+}

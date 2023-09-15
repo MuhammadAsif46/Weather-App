@@ -33,17 +33,20 @@
         <!-- Footer Section -->
 
         <div class="weather-forcast">
-            <div class="wind-speed">
-                <p>hello</p>
-            </div>
             <div class="humidity">
-                <p>hello</p>
+                <p>72</p>
+                <img src="" alt="">
+                <h5>Huminity</h5>
+            </div>
+            <div class="wind-speed">
+                <p>72</p>
+                <img src="" alt="">
+                <h5>Wind speed</h5>
             </div>
             <div class="feels-like">
-                <p>hello</p>
-            </div>
-            <div class="precipetion">
-                <p>hello</p>
+                <p>72</p>
+                <img src="" alt="">
+                <h4>Feels Like</h4>
             </div>
         </div>
     </div>
@@ -63,9 +66,9 @@
                     document.querySelector(".temp").innerHTML = response.data.main.temp + "°c" ;
                     document.querySelector(".city").innerHTML = response.data.name + ", " + response.data.sys.country ;
                     document.querySelector(".cloud").innerHTML = response.data.weather[0].description ;
-                    document.querySelector(".wind-speed").innerHTML = response.data.wind.speed;
-                    document.querySelector(".humidity").innerHTML = response.data.main.humidity;
-                    document.querySelector(".feels-like").innerHTML = response.data.main.feels_like;
+                    // document.querySelector(".wind-speed").innerHTML = response.data.wind.speed;
+                    // document.querySelector(".humidity").innerHTML = response.data.main.humidity;
+                    // document.querySelector(".feels-like").innerHTML = response.data.main.feels_like;
                     // document.querySelector(".cloud").innerHTML =
                     // cityName = " ";
                 })
