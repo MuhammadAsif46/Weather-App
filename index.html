@@ -24,7 +24,7 @@
         <!-- Hero Section -->
 
         <div id="weather" class="current-weather">
-            <img src="./img/cloud-img.png" alt="cloudImage" />
+            <img class="weatherClouds"  src="./img/cloud-img.png" alt="cloudImage" />
                     <h1 class="temp">26°c</h1>
                     <p class="city">london,<span id="country">UK</span> </p>
                     <p class="cloud">sunny</p>
@@ -34,17 +34,17 @@
 
         <div class="weather-forcast">
             <div class="humidity">
-                <h3>72</h3>
+                <h3 class="humidity-val">72</h3>
                 <img src="./img/humidity.png" alt="humidity">
                 <p>Huminity</p>
             </div>
             <div class="wind-speed">
-                <h3>72</h3>
+                <h3 class="wind-speed-val">72</h3>
                 <i class="fa-solid fa-wind"></i>
                 <p>Wind speed</p>
             </div>
             <div class="feels-like">
-                <h3>72</h3>
+                <h3 class="feels-like-val">72</h3>
                 <i class="fa-solid fa-cloud-moon-rain"></i>
                 <p>Feels Like</p>
             </div>
@@ -57,20 +57,40 @@
             // e.preventDefault()
         
             let cityName = document.querySelector("#cityName").value;
-            let API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
+            const API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
+
+            const weatherClouds = document.querySelector(".weatherClouds");
 
             axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
                 .then(function (response){
                     console.log(response.data);
 
-                    document.querySelector(".temp").innerHTML = response.data.main.temp + "°c" ;
+                    document.querySelector(".temp").innerHTML = Math.round(response.data.main.temp) + "°c" ;
                     document.querySelector(".city").innerHTML = response.data.name + ", " + response.data.sys.country ;
                     document.querySelector(".cloud").innerHTML = response.data.weather[0].description ;
-                    // document.querySelector(".wind-speed").innerHTML = response.data.wind.speed;
-                    // document.querySelector(".humidity").innerHTML = response.data.main.humidity;
-                    // document.querySelector(".feels-like").innerHTML = response.data.main.feels_like;
-                    // document.querySelector(".cloud").innerHTML =
-                    // cityName = " ";
+                    document.querySelector(".humidity-val").innerHTML = Math.round(response.data.wind.speed) + "%";
+                    document.querySelector(".wind-speed-val").innerHTML = response.data.main.humidity + " km/h";
+                    document.querySelector(".feels-like-val").innerHTML = response.data.main.feels_like;
+                    
+                    if(response.data.weather[0].main == "Clouds"){
+                        weatherClouds.src = "./img/clouds.png";
+
+                    }else if (response.data.weather[0].main == "Clear") {
+                        weatherClouds.src = "./img/clear.png";
+                    
+                    }else if (response.data.weather[0].main == "Rain") {
+                        weatherClouds.src = "./img/rain.png";
+                    
+                    }else if (response.data.weather[0].main == "Drizzle") {
+                        weatherClouds.src = "./img/drizzle.png";
+                    
+                    }else if (response.data.weather[0].main == "Snow") {
+                        weatherClouds.src = "./img/snow.png";
+                    
+                    }else if (response.data.weather[0].main == "Mist") {
+                        weatherClouds.src = "./img/mist.png";
+                    
+                    }
                 })
                 .catch(function (error){
                     console.log(error.data);

@@ -89,6 +89,7 @@ div.weather-forcast{
 }
 
 div.weather-forcast h3{
+    margin: 8px 0;
     color: #62b6cb;
 }
 
@@ -99,7 +100,7 @@ div.weather-forcast img{
 
 div.weather-forcast i{
     margin-top: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 div.humidity{
@@ -109,25 +110,27 @@ div.humidity{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-div.humidity h3{
+/* div.humidity h3{
     margin: 5px 0;
-}
+} */
 
 div.wind-speed{
     /* border: 1px solid red; */
-    width: 48%;
+    width: 49%;
     background-color: #416273;
 }
-div.wind-speed h3{
+/* div.wind-speed h3{
     margin: 5px 0;
-}
+} */
 
 div.feels-like{
     /* border: 1px solid red; */
     width: 25%;
     background-color: #416273;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
-div.feels-like h3{
+/* div.feels-like h3{
     margin: 5px 0;
-}
+} */
