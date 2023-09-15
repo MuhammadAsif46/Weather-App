@@ -9,6 +9,13 @@ body{
     display: flex;
     justify-content: center;
 }
+/* heading */
+
+h1.main-heading{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
 /* Card */
 
@@ -133,6 +140,7 @@ div.feels-like{
     div.card{
         margin-top: 0;
         border-radius: 0;
+        width: 100%;
     }
     body{
         height: 100vh;
