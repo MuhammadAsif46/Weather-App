@@ -14,7 +14,7 @@
 
         <header class="card-header">
             <div class="search">
-                <input type="text" id="cityName" placeholder="Enter City Name">
+                <input type="text" id="cityName" placeholder="Enter City Name" >
             </div>
             <div class="search-icon">
                 <i onclick="getWeather()" class="fa fa-search" aria-hidden="true"></i>
@@ -24,22 +24,34 @@
         <!-- Hero Section -->
 
         <div id="weather" class="current-weather">
-            <img src="./img/cloud-img.png" alt="cloudImage">
-                    <h1 id="temp">26°c</h1>
-                    <p id="city">london,<span id="country">UK</span> </p>
-                    <p id="cloud">sunny</p>
+            <img src="./img/cloud-img.png" alt="cloudImage" />
+                    <h1 class="temp">26°c</h1>
+                    <p class="city">london,<span id="country">UK</span> </p>
+                    <p class="cloud">sunny</p>
         </div>
         
         <!-- Footer Section -->
 
         <div class="weather-forcast">
-
+            <div class="wind-speed">
+                <p>hello</p>
+            </div>
+            <div class="humidity">
+                <p>hello</p>
+            </div>
+            <div class="feels-like">
+                <p>hello</p>
+            </div>
+            <div class="precipetion">
+                <p>hello</p>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script>
-        const getWeather = () => {
+    <script>    
+        const getWeather = (e) => {
+            // e.preventDefault()
         
             let cityName = document.querySelector("#cityName").value;
             let API_KEY = "e0f99c494c2ce394a18cc2fd3f100543";
@@ -48,14 +60,14 @@
                 .then(function (response){
                     console.log(response.data);
 
-                    document.querySelector("#temp").innerHTML = response.data.main.temp + "°c" ;
-                    document.getElementById("city").innerHTML = response.data.name + "zzz";
-                    document.getElementById("country").innerHTML = response.data ;
-                    document.getElementById("cloud").innerHTML = response.data.weather ;
-                    // `<img src="./img/cloud-img.png" alt="cloudImage">
-                    // <h1>${response.data.main.temp}°c</h1>
-                    // <p>${response.data.name}, ${response.data.sys.country}</p>
-                    // <p>${response.data.weather[0].description}</p>`
+                    document.querySelector(".temp").innerHTML = response.data.main.temp + "°c" ;
+                    document.querySelector(".city").innerHTML = response.data.name + ", " + response.data.sys.country ;
+                    document.querySelector(".cloud").innerHTML = response.data.weather[0].description ;
+                    document.querySelector(".wind-speed").innerHTML = response.data.wind.speed;
+                    document.querySelector(".humidity").innerHTML = response.data.main.humidity;
+                    document.querySelector(".feels-like").innerHTML = response.data.main.feels_like;
+                    // document.querySelector(".cloud").innerHTML =
+                    // cityName = " ";
                 })
                 .catch(function (error){
                     console.log(error.data);
